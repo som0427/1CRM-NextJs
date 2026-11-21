@@ -1,0 +1,40 @@
+.attributeLogsGrid :global(.ag-header-cell-label),
+.attributeLogsGrid :global(.ag-header-group-cell-label) {
+  width: 100%;
+  display: flex;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.attributeLogsGrid :global(.ag-header-cell),
+.attributeLogsGrid :global(.ag-cell) {
+  display: flex;
+  align-items: center;
+}
+
+.attributeLogsGrid :global(.ag-cell) {
+  justify-content: center;
+  text-align: center;
+}
+
+.attributeLogsGrid :global(.ag-tooltip) {
+  pointer-events: none;
+}
+
+.valuesButton {
+  color: #2563eb;
+  transition: color 0.15s ease;
+}
+
+.valuesButton:hover,
+.valuesButton:focus,
+.valuesButton:active {
+  color: #1d4ed8;
+}
+
+.attributeLogsGrid :global(.ag-cell:focus) .valuesButton,
+.attributeLogsGrid :global(.ag-cell.ag-cell-focus) .valuesButton {
+  color: #2563eb !important;
+  -webkit-text-fill-color: #2563eb !important;
+}

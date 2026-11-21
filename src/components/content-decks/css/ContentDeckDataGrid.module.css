@@ -1,0 +1,14 @@
+.ag-theme-alpine .ag-cell:focus,
+.ag-theme-alpine .ag-cell.ag-cell-focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Hide AG Grid's built-in pagination panel to prevent duplicates */
+.noCellFocusOutline .ag-paging-panel {
+  display: none !important;
+}
+
+.noCellFocusOutline .ag-paging-row-summary-panel {
+  display: none !important;
+}

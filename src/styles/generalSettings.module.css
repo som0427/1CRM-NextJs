@@ -1,0 +1,630 @@
+.tabContainer {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    box-sizing: border-box;
+    overflow-x: visible;
+    position: relative;
+    max-height: 80vh;
+  }
+  
+  .tabContent {
+    width: 100%;
+    background-color: #fff;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  /* Hide scrollbar completely */
+  .tabContent::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .tabTitle {
+    margin: 0;
+    font-weight: 600;
+    font-size: 20px;
+    color: #14142b;
+    padding: 8px 24px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .tabActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    padding: 16px 24px;
+    border-top: 1px solid #f1f1f5;
+    background-color: white;
+    position: sticky;
+    bottom: 0;
+    z-index: 0;
+    margin-top: auto;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .cancelBtn {
+    background-color: #f7f7fc;
+    color: #4e4b66;
+    border: 1px solid #eee;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+  
+  .cancelBtn:hover {
+    background-color: #efeff6;
+    transform: translateY(-1px);
+  }
+  
+  .submitBtn {
+    background-color: #3699FF;
+    color: white;
+    font-weight: 500;
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+  }
+  
+  .submitBtn:hover {
+    background-color: #2680D7;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+  }
+  
+  .errorText {
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 6px;
+    font-weight: 500;
+  }
+  
+  /* Form field styles */
+  .tabField {
+    margin: 0;
+    padding: 8px 0;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+  }
+  
+  .tabField label {
+    width: 30%;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4e4b66;
+    padding-top: 12px;
+    padding-right: 16px;
+    white-space: normal;
+    overflow: visible;
+    word-break: break-word;
+  }
+  
+  .fieldInputContainer {
+    flex: 1;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 5px 0;
+    border-bottom: 1px solid #d9dbe9;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+    outline: none;
+    background-color: #ffffff;
+  }
+  
+  .input:focus {
+    border-bottom: 1px solid #3699FF;
+  }
+  
+  .select {
+    width: 100%;
+    padding: 8px 0;
+    border-bottom: 1px solid #d9dbe9;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+    outline: none;
+    background-color: #ffffff;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2014%2014%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M3.5%205.25L7%208.75L10.5%205.25%22%20stroke%3D%22%23626262%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+  }
+  
+  .select:focus {
+    border-bottom: 1px solid #3699FF;
+  }
+  
+  .textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border-bottom: 1px solid #d9dbe9;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+    outline: none;
+    min-height: 80px;
+    resize: vertical;
+    background-color: #ffffff;
+  }
+  
+  .textarea:focus {
+    border-color: #3699FF;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+  }
+  
+  .fileInput {
+    width: 100%;
+    font-size: 14px;
+    padding: 5px 0;
+    color: #4b5563;
+  }
+  
+  .instructionText {
+    color: #6b7280;
+    font-size: 10px;
+    margin-top: 2px;
+  }
+  
+  /* React Select Styling */
+  .reactSelect {
+    width: 100%;
+  }
+  
+  .reactSelect :global(.react-select__control) {
+    min-height: 42px;
+    border: 1px solid #d9dbe9;
+    border-radius: 8px;
+    box-shadow: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    padding: 2px 8px;
+  }
+  
+  .reactSelect :global(.react-select__control:hover) {
+    border-color: #3699FF;
+  }
+  
+  .reactSelect :global(.react-select__control--is-focused) {
+    border-color: #3699FF;
+    box-shadow: 0 0 0 1px #3699FF;
+  }
+  
+  .reactSelect :global(.react-select__menu) {
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    margin-top: 4px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .selectOption,
+  .selectAllOption {
+    display: flex;
+    align-items: center;
+    padding: 2px;
+  }
+  
+  .optionCheckbox {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    accent-color: #3699FF;
+    cursor: pointer;
+  }
+  
+  .dateInput {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #d9dbe9;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+    outline: none;
+    color: #333;
+    background-color: #ffffff;
+  }
+  
+  .dateInput:focus {
+    border-color: #3699FF;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+  }
+  
+  /* Radio styles */
+  .radioGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .radioOption {
+    display: flex;
+    align-items: center;
+  }
+  
+  .radioInput {
+    margin-right: 8px;
+    accent-color: #3699FF;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+  
+  .radioLabel {
+    font-size: 14px;
+    color: #4b5563;
+    cursor: pointer;
+  }
+  
+  .formField input,
+  .formField select,
+  .formField textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #d9dbe9;
+    border-radius: 6px;
+    background-color: #ffffff;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+    margin: 0;
+  }
+  
+  .formField input:focus,
+  .formField select:focus,
+  .formField textarea:focus {
+    outline: none;
+    border-color: #3699FF;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+  
+  .formField input:disabled,
+  .formField select:disabled,
+  .formField textarea:disabled {
+    background-color: #f7f7fc;
+    cursor: not-allowed;
+  }
+  
+  /* For react-select components */
+  .customSelect {
+    width: 100%;
+  }
+  
+  .multiSelect {
+    width: 100%;
+  }
+  
+  .customSelect :global(.react-select__control),
+  .multiSelect :global(.select__control) {
+    min-height: 42px;
+    border-color: #d9dbe9;
+    border-radius: 8px;
+    box-shadow: none;
+  }
+  
+  .customSelect :global(.react-select__control:hover),
+  .multiSelect :global(.select__control:hover) {
+    border-color: #b6b9d0;
+  }
+  
+  .customSelect :global(.react-select__control--is-focused),
+  .multiSelect :global(.select__control--is-focused) {
+    border-color: #3699FF;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+  
+  .customSelect :global(.react-select__menu),
+  .multiSelect :global(.select__menu) {
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+  }
+  
+  .customSelect :global(.react-select__option--is-selected),
+  .multiSelect :global(.select__option--is-selected) {
+    background-color: #eef2ff;
+    color: #1e40af;
+  }
+  
+  .customSelect :global(.react-select__option:hover:not(.react-select__option--is-selected)),
+  .multiSelect :global(.select__option:hover:not(.select__option--is-selected)) {
+    background-color: #f1f5ff;
+  }
+  
+  .multiSelect :global(.select__option) {
+    padding: 0;
+    cursor: pointer;
+    margin: 2px 0;
+    text-align: left;
+  }
+  
+  .multiSelect :global(.select__menu) {
+    padding: 4px;
+    border: 1px solid #d9dbe9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+  }
+  
+  .multiSelect :global(.select__control) {
+    padding: 0 8px;
+    min-height: 42px;
+  }
+  
+  .multiSelect :global(.select__multi-value) {
+    background-color: #eef2ff;
+    border-radius: 4px;
+    margin: 3px;
+    border: 1px solid #d9dbe9;
+  }
+  
+  .multiSelect :global(.select__multi-value__label) {
+    color: #3699FF;
+    font-size: 13px;
+    padding: 3px 6px;
+    text-align: left;
+  }
+  
+  .multiSelect :global(.select__multi-value__remove) {
+    color: #4b5563;
+    cursor: pointer;
+    padding: 0 4px;
+    border-radius: 0 4px 4px 0;
+  }
+  
+  .multiSelect :global(.select__multi-value__remove:hover) {
+    background-color: #dbeafe;
+    color: #1e40af;
+  }
+  
+  .multiSelectOption {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+  }
+  
+  .multiSelectCheckboxContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    flex-shrink: 0;
+  }
+  
+  .multiSelectCheckbox {
+    width: 16px;
+    height: 16px;
+    accent-color: #3699FF;
+    cursor: pointer;
+  }
+  
+  .multiSelectLabel {
+    flex-grow: 1;
+    text-align: left;
+    margin-left: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* For date picker */
+  .datePicker {
+    width: 100%;
+  }
+  
+  .datePicker :global(input) {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #d9dbe9;
+    border-radius: 8px;
+    transition: border-color 0.2s ease;
+  }
+  
+  .datePicker :global(input:focus) {
+    outline: none;
+    border-color: #3699FF;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+  
+  /* Form grid layout for single column fields */
+  .formGrid {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+  }
+  
+  .loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    width: 100%;
+  }
+  
+  .spinner {
+    animation: spin 1s linear infinite;
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-top-color: #3498db;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  
+  
+  .formSection {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: white;
+  }
+  
+  .formTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #334155;
+    padding: 16px 24px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 10;
+    border-bottom: 1px solid #f0f0f0;
+    margin: 0;
+  }
+  
+  .groupFields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .fieldColumn {
+    flex: 1;
+    min-width: 240px;
+  }
+  
+  .fieldWrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .radioGroup {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  
+  .radioOption {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
+  
+  .radioOption:hover {
+    background-color: #f7f7fc;
+  }
+  
+  .checkboxGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  
+  .checkboxOption {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .formGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .formContainer {
+      padding: 24px;
+    }
+  }
+  
+  /* Loading state */
+  .loadingSpinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+  }
+  
+  .loadingSpinner div {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3699FF;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Button Styles */
+.gs-button-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    z-index: 20;
+  }
+  
+  .gs-button-cancel {
+    padding: 0.5rem 1rem;
+    border: 1px solid #F2F2F2;
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    background-color: white;
+  }
+  
+  .gs-button-cancel:hover {
+    background-color: #E0E0E0;
+  }
+  
+  .gs-button-cancel:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    border-color: #3b82f6;
+  }
+  
+  .gs-button-save {
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: white;
+    background-color: #3699FF;
+  }
+  
+  .gs-button-save:hover {
+    background-color: #2680D7;
+  }
+  
+  .gs-button-save:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }

@@ -1,0 +1,19 @@
+node_modules
+.next/build-manifest.json
+/.next/cache
+*.gz
+/node_modules
+/.next
+next-env.d.ts
+.DS_Store
+.DS_Store
+/src/.next
+next/
+out/
+*.yml
+*.tsbuildinfo
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example

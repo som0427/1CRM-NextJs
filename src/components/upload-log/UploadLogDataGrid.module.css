@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.gridContainer {
+  flex: 1;
+  width: 100%;
+}
+
+.gridContainer :global(.ag-header) {
+  overflow: visible;
+}
+
+.gridContainer :global(.ag-header-cell) {
+  padding: 0 12px;
+}
+
+.ellipsisCell {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Override AG Grid cell wrapper to allow ellipsis */
+.gridContainer :global(.ag-cell-wrapper) {
+  width: 100%;
+  overflow: hidden;
+}
+
+.gridContainer :global(.ag-cell-value) {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+

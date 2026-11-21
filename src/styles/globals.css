@@ -1,0 +1,705 @@
+/* Global styles */
+
+/* Custom styles that should apply after Tailwind */
+
+/* Base styles */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: urbanist, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Basic colors */
+  --background: #ffffff;
+  --foreground: #000000;
+  --border: #d9d9d9;
+  --radius: 0.5rem;
+  
+  /* Theme colors */
+  --primary-color: #1890ff;
+  --secondary-color: #e1f0ff;
+  --success-color: #52c41a;
+  --warning-color: #faad14;
+  --danger-color: #f5222d;
+  --info-color: #1890ff;
+}
+
+/* Custom styling for our app */
+.table-container {
+  background-color: white;
+  border-radius: 4px;
+}
+
+/* Add more custom styles as needed */
+
+/* Upload animation */
+@keyframes upload-arrow {
+  0% {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-8px);
+    opacity: 0;
+  }
+}
+
+.animate-upload-arrow {
+  animation: upload-arrow 1.5s ease-in-out infinite;
+}
+
+/* Hide native date picker calendar icon */
+.hide-date-icon::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+.hide-date-icon::-webkit-inner-spin-button,
+.hide-date-icon::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.hide-date-icon {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* AG Grid customizations - Borderless style */
+
+/* AG Grid customizations - Comprehensive styling */
+
+.ag-theme-alpine {
+  border: none;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  --ag-borders: none;
+  --ag-borders-side-button: none;
+  --ag-border-color: transparent;
+  --ag-header-background-color: #ffffff;
+  --ag-header-cell-hover-background-color: #f5f5f5;
+  --ag-row-hover-color: #f9fafb;
+  --ag-selected-row-background-color: #eff6ff;
+}
+
+.ag-theme-alpine .ag-root-wrapper {
+  /* Outer border for AG Grid */
+  border: 1px solid #d9d9d9; /* Tailwind gray-200 */
+  border-radius: 8px;
+  box-shadow: none;
+  width: 100% !important;
+  min-width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+}
+
+.ag-theme-alpine .ag-root {
+  width: 100% !important;
+  min-width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+}
+
+.ag-theme-alpine .ag-body-viewport {
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+/* Ensure grid container maintains size during loading */
+.ag-theme-alpine .ag-center-cols-container {
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+.ag-theme-alpine .ag-center-cols-viewport {
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+.ag-theme-alpine .ag-header {
+  background-color: #ffffff;
+}
+
+.ag-theme-alpine .ag-pinned-right-cols-container {
+  border-left: none !important;
+}
+
+/* Cell borders - each cell has bottom border so line extends with columns */
+.ag-theme-alpine .ag-cell {
+  border-bottom: 1px solid #d9d9d9 !important;
+  border-right: none !important;
+  border-left: none !important;
+  border-top: none !important;
+}
+
+/* Row borders - remove to avoid double lines */
+.ag-theme-alpine .ag-row {
+  border-bottom: none !important;
+}
+
+/* Ensure header cells also have consistent borders */
+.ag-theme-alpine .ag-header-cell {
+  border-bottom: 1px solid #d9d9d9 !important;
+  border-right: none !important;
+  border-left: none !important;
+  border-top: none !important;
+}
+
+/* Row borders for even/odd rows - remove to avoid double lines */
+.ag-theme-alpine .ag-row-even,
+.ag-theme-alpine .ag-row-odd {
+  border: none !important;
+}
+
+/* Ensure pinned columns don't create border conflicts */
+.ag-theme-alpine .ag-pinned-left-cols-container,
+.ag-theme-alpine .ag-pinned-right-cols-container {
+  border: none !important;
+}
+
+/* Remove any container-level borders that might cause double lines */
+.ag-theme-alpine .ag-center-cols-container,
+.ag-theme-alpine .ag-center-cols-viewport {
+  border: none !important;
+}
+
+/* Ensure consistent borders across all column sections */
+.ag-theme-alpine .ag-pinned-left-cols-container .ag-cell,
+.ag-theme-alpine .ag-pinned-right-cols-container .ag-cell,
+.ag-theme-alpine .ag-center-cols-container .ag-cell {
+  border-bottom: 1px solid #d9d9d9 !important;
+  border-right: none !important;
+  border-left: none !important;
+  border-top: none !important;
+}
+
+/* Auto-fit columns to fill available width without JavaScript */
+.ag-theme-alpine .ag-header-container {
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+.ag-theme-alpine .ag-header-row {
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+/* Ensure columns distribute evenly across available width */
+.ag-theme-alpine .ag-header-cell {
+  flex: 1;
+  min-width: 120px;
+}
+
+.ag-theme-alpine .ag-cell {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* ===== Center headers and row data in AG Grid ===== */
+/* Center header text */
+.ag-theme-alpine .ag-header-cell-label,
+.ag-theme-alpine .ag-header-group-cell-label {
+  justify-content: left !important;
+}
+
+/* Vertically center header and cells */
+.ag-theme-alpine .ag-header-cell,
+.ag-theme-alpine .ag-cell {
+  display: flex;
+  align-items: left;
+}
+
+/* Horizontally center cell content and text */
+.ag-theme-alpine .ag-cell {
+  justify-content: left;
+  text-align: left;
+}
+
+/* Prevent horizontal scrolling when not needed */
+.ag-theme-alpine .ag-body-horizontal-scroll {
+  overflow-x: auto;
+}
+
+/* Force grid to use full container width */
+.ag-theme-alpine .ag-center-cols-clipper {
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+/* Ensure proper width distribution during data loading */
+.ag-theme-alpine .ag-body {
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+.ag-theme-alpine .ag-floating-top {
+  width: 100% !important;
+}
+
+.ag-theme-alpine .ag-floating-bottom {
+  width: 100% !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  box-shadow: 0 0 0px 1000px white inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #000 !important;
+}
+
+/* Hide scrollbar but keep scroll functionality */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Blur only main content (not header or modal) when modal is open */
+body.modal-blur main {
+  filter: blur(4px);
+  transition: filter 0.2s;
+}
+
+
+/* Custom big bounce animation */
+
+@keyframes big-bounce {
+  0%, 100% {
+      transform: translateY(0);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+      transform: translateY(12px);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-big-bounce {
+  animation: big-bounce 1s infinite;
+}
+
+/* Dropdown fade animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-fadeOut {
+  animation: fadeOut 0.2s ease-out forwards;
+}
+.space-between-icon {
+  margin-right: -4px;
+}
+
+/* Prevent AG Grid from hiding on right-click or menu interaction */
+.ag-theme-alpine .ag-root-wrapper {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Force grid to stay visible when menus are active */
+body:has(.ag-menu) .ag-theme-alpine,
+body:has(.ag-popup) .ag-theme-alpine,
+body:has(.ag-filter) .ag-theme-alpine {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+
+
+/* Menu overlays configuration */
+.ag-theme-alpine .ag-menu,
+.ag-theme-alpine .ag-popup,
+.ag-theme-alpine .ag-column-select-popup {
+  /* z-index: 9999 !important; */
+  position: absolute !important;
+}
+
+/* Ensure rows display properly */
+.ag-theme-alpine .ag-row {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Fix cell visibility on right-click */
+.ag-theme-alpine .ag-cell.ag-cell-focus,
+.ag-theme-alpine .ag-cell:focus {
+  color: black !important;
+  -webkit-text-fill-color: black !important;
+}
+
+.target-header-cell .ag-header-cell-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  font-family: inherit;
+}
+
+/* Remove backdrop that might hide grid */
+.ag-theme-alpine .ag-popup-backdrop {
+  display: none !important;
+}
+
+.modalBackground {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* Fade-in animation for smooth modal transitions */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.95) translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes scaleOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: both;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: both;
+}
+
+.animate-scaleOut {
+  animation: scaleOut 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: both;
+}
+
+.grid-height-190 {
+  height: calc(100vh - 190px);
+}
+
+/* 
+ CSS related to hide glitch issues which occur during row dragging in AG Grid. 
+ -----------------------------
+*/
+.ag-theme-alpine .ag-center-cols-container,
+.ag-theme-alpine .ag-center-cols-viewport,
+.ag-theme-alpine .ag-body-horizontal-scroll,
+.ag-theme-alpine .ag-body-vertical-scroll {
+  min-height: 10px !important;
+}
+
+.ag-theme-alpine {
+  background: transparent !important;
+}
+
+.ag-theme-alpine .ag-root-wrapper {
+  background: transparent !important;
+}
+
+.ag-dnd-ghost {
+  color: transparent !important;
+}
+
+.ag-dnd-ghost .ag-row-drag,
+.ag-dnd-ghost .ag-row-drag-custom-icon,
+.ag-dnd-ghost .ag-icon,
+.ag-dnd-ghost svg {
+  display: none !important;
+}
+
+
+.ag-dnd-ghost {
+  opacity: 0 !important;   /* invisible */
+  pointer-events: none !important;
+}
+
+/* ---------------------------- */
+
+
+
+.ag-header-row .ag-header-cell {
+  border-bottom: none !important;
+}
+
+/* React DatePicker Custom Styles */
+@keyframes datepicker-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.react-datepicker {
+  font-family: inherit !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+  animation: datepicker-fade-in 0.2s ease-out;
+}
+
+.react-datepicker__header {
+  background-color: #f9fafb !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+  padding-top: 10px !important;
+}
+
+.react-datepicker__current-month {
+  font-weight: 600 !important;
+  color: #1f2937 !important;
+  font-size: 14px !important;
+}
+
+.react-datepicker__day-name {
+  color: #6b7280 !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+}
+
+.react-datepicker__day {
+  color: #374151 !important;
+  border-radius: 6px !important;
+  transition: all 0.15s ease !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: #e0f2fe !important;
+  color: #0369a1 !important;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #3699FF !important;
+  color: white !important;
+}
+
+.react-datepicker__day--selected:hover,
+.react-datepicker__day--keyboard-selected:hover {
+  background-color: #2680D7 !important;
+}
+
+.react-datepicker__day--today {
+  font-weight: 600 !important;
+  border: 1px solid #3699FF !important;
+}
+
+.react-datepicker__day--disabled {
+  color: #d1d5db !important;
+}
+
+.react-datepicker__navigation {
+  top: 12px !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: #6b7280 !important;
+}
+
+.react-datepicker__navigation:hover *::before {
+  border-color: #3699FF !important;
+}
+
+.react-datepicker-popper {
+  z-index: 9999 !important;
+}
+
+.react-datepicker__triangle {
+  display: none !important;
+}
+
+/* Make react-datepicker wrapper take full width */
+.react-datepicker-wrapper {
+  width: 100% !important;
+  display: block !important;
+}
+
+.react-datepicker__input-container {
+  width: 100% !important;
+  display: block !important;
+}
+
+/* ===== DateTime Picker Clean Styles ===== */
+.datetime-calendar-clean {
+  font-family: inherit !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+  overflow: hidden;
+  background: white !important;
+}
+
+.datetime-calendar-clean .react-datepicker__header {
+  background: white !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+.datetime-calendar-clean .react-datepicker__day-names {
+  background: #f9fafb;
+  padding: 6px 8px;
+  margin: 0;
+}
+
+.datetime-calendar-clean .react-datepicker__day-name {
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  width: 32px;
+  margin: 0 2px;
+  line-height: 24px;
+}
+
+.datetime-calendar-clean .react-datepicker__month {
+  margin: 0;
+  padding: 6px 8px 8px;
+}
+
+.datetime-calendar-clean .react-datepicker__day {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  margin: 2px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  transition: all 0.15s ease;
+}
+
+.datetime-calendar-clean .react-datepicker__day:hover {
+  background: #eff6ff !important;
+  color: #3699FF !important;
+}
+
+.datetime-calendar-clean .react-datepicker__day--selected {
+  background: #3699FF !important;
+  color: white !important;
+  font-weight: 600;
+}
+
+.datetime-calendar-clean .react-datepicker__day--selected:hover {
+  background: #187DE4 !important;
+}
+
+.datetime-calendar-clean .react-datepicker__day--today {
+  font-weight: 700;
+  color: #3699FF;
+}
+
+.datetime-calendar-clean .react-datepicker__day--today.react-datepicker__day--selected {
+  color: white;
+}
+
+.datetime-calendar-clean .react-datepicker__day--disabled {
+  color: #d1d5db !important;
+  cursor: not-allowed;
+}
+
+.datetime-calendar-clean .react-datepicker__day--outside-month {
+  color: #9ca3af;
+}
+
+.datetime-calendar-clean .react-datepicker__current-month,
+.datetime-calendar-clean .react-datepicker__navigation {
+  display: none;
+}
+
+.datetime-popper-clean {
+  z-index: 9999 !important;
+  padding-top: 4px !important;
+}
+
+.datetime-popper-clean .react-datepicker__triangle {
+  display: none !important;
+}
+
+/* Very thin scrollbar for datetime picker time columns */
+.datetime-thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+
+.datetime-thin-scrollbar::-webkit-scrollbar {
+  width: 3px;
+}
+
+.datetime-thin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.datetime-thin-scrollbar::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 2px;
+}
+
+.datetime-thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
